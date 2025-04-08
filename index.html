@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
     <link
       href="https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&display=swap"
       rel="stylesheet"
@@ -21,10 +22,10 @@
     <header>
       <div class="container header-container">
         <div class="logo">
-          <img src="./assets/image/logo.png" alt="" />
+          <img src="./assets/logo.svg" alt="" />
         </div>
         <div>
-          <button class="btn btn-primary">Pré-inscription</button>
+          <button class="btn btn-primary" id="preInscriptionBtn01">Pré-inscription</button>
         </div>
       </div>
     </header>
@@ -41,7 +42,9 @@
             CodeSeer est la solution la plus rapide d'avoir une vision claire
             des enjeux de votre logiciel <strong>SaaS</strong>
           </p>
-          <button class="btn btn-hero">Pré-inscription</button>
+          <button class="btn btn-hero" id="preInscriptionBtn02">
+            Pré-inscription
+          </button>
         </div>
         <div class="hero-image-container">
           <div class="image-gradient"></div>
@@ -53,67 +56,65 @@
         </div>
       </div>
 
-      <div class="scroll-arrow">
-        <div class="arrow-icon">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 5V19M12 19L5 12M12 19L19 12"
-              stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+      <div class="modal" id="preInscriptionModal">
+        <div class="modal-content">
+          <span class="close-btn" id="closeModalBtn">&times;</span>
+          <h2>Pré-inscription</h2>
+        
+          <form>
+            <label for="nom">Nom</label>
+            <input
+              type="text"
+              id="nom"
+              placeholder="Entrez votre nom"
+              required
             />
-          </svg>
+            <label for="nom">Prénom</label>
+            <input
+              type="text"
+              id="nom"
+              placeholder="Entrez votre nom"
+              required
+            />
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Entrez votre email"
+              required
+            />
+
+            <button type="submit">Envoyer</button>  
+            <img src="./assets/logo.svg" alt="" class="modal-img">
+          </form>
         </div>
       </div>
-      <div class="background-grid">
-        <!-- Génère une grille 7x4 de carrés -->
-        <div class="grid">
-          <!-- 28 carrés -->
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
-          <div class="cube"></div>
+
+      <a href="#features">
+        <div class="scroll-arrow">
+          <div class="arrow-icon">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 5V19M12 19L5 12M12 19L19 12"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
         </div>
-      </div>
+      </a>
     </section>
 
     <!-- Features Section -->
-    <section class="features">
+    <section class="features" id="features">
       <div class="container">
         <h2 class="section-title">
           Audit ciblé pour des
@@ -149,19 +150,13 @@
 
           <div class="feature-card">
             <div class="feature-icon zap-icon">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polygon
-                  points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
-                ></polygon>
+              <svg width="24" height="24" viewBox="0 0 55 55" fill="white">
+                <path
+                  d="M20.7539 38.0274C20.541 37.9534 20.3155 37.9225 20.0905 37.9366C19.8656 37.9507 19.6457 38.0095 19.4437 38.1095C19.2417 38.2095 19.0616 38.3487 18.914 38.5191C18.7664 38.6894 18.6542 38.8874 18.584 39.1016C17.166 43.334 12.5898 44.6446 9.94727 45.0528C10.3555 42.4102 11.666 37.834 15.8984 36.416C16.1302 36.3599 16.3477 36.2562 16.5372 36.1114C16.7267 35.9666 16.884 35.784 16.9991 35.5752C17.1142 35.3664 17.1845 35.1359 17.2057 34.8984C17.2269 34.6609 17.1985 34.4215 17.1222 34.1956C17.0459 33.9697 16.9234 33.7621 16.7625 33.5861C16.6017 33.4101 16.4059 33.2695 16.1878 33.1732C15.9697 33.0769 15.7339 33.0271 15.4954 33.0269C15.257 33.0266 15.0211 33.076 14.8027 33.1719C11.2793 34.3321 8.70117 37.125 7.32617 41.2285C6.71693 43.0744 6.3839 45.0001 6.33789 46.9434C6.33789 47.3992 6.51897 47.8364 6.8413 48.1587C7.16363 48.4811 7.6008 48.6621 8.05664 48.6621C9.99988 48.6161 11.9256 48.2831 13.7715 47.6739C17.875 46.2989 20.668 43.7207 21.8281 40.1973C21.9021 39.9844 21.933 39.7589 21.9189 39.5339C21.9048 39.309 21.846 39.0891 21.746 38.8871C21.646 38.6851 21.5068 38.505 21.3364 38.3574C21.1661 38.2098 20.9681 38.0976 20.7539 38.0274Z"
+                />
+                <path
+                  d="M48.8983 8.98049C48.7976 8.25251 48.4618 7.57735 47.9422 7.05769C47.4225 6.53803 46.7473 6.20231 46.0194 6.10158C43.5916 5.73635 37.2967 5.56447 31.1522 11.709L29.2186 13.6211H16.0487C15.1385 13.6273 14.267 13.9898 13.6209 14.6309L6.68148 21.5918C6.24145 22.0294 5.92895 22.5787 5.77754 23.1805C5.62613 23.7824 5.64154 24.4141 5.82211 25.0078C6.00126 25.6059 6.3399 26.1438 6.80168 26.564C7.26345 26.9841 7.83093 27.2706 8.4432 27.3926L16.9295 29.0899L25.91 38.0703L27.6073 46.5567C27.7293 47.1689 28.0157 47.7364 28.4359 48.1982C28.856 48.66 29.394 48.9986 29.992 49.1778C30.3114 49.28 30.645 49.3308 30.9803 49.3281C31.4321 49.3322 31.8801 49.2448 32.2973 49.0713C32.7145 48.8978 33.0923 48.6417 33.408 48.3184L40.369 41.3789C41.0101 40.7328 41.3725 39.8613 41.3787 38.9512V25.7813L43.2909 23.8477C49.4354 17.7031 49.2635 11.4082 48.8983 8.98049ZM16.0487 17.0586H25.7811L17.2088 25.6309L9.10922 24.0196L16.0487 17.0586ZM37.9412 38.9512L30.9803 45.8906L29.369 37.791L37.9412 29.2188V38.9512Z"
+                />
               </svg>
             </div>
             <h3 class="feature-title">Performance</h3>
@@ -278,7 +273,7 @@
                 placeholder="Entrez votre e-mail"
                 class="join-input"
               />
-              <button class="btn btn-join">S'inscrire maintenant</button>
+              <button class="btn btn-join" id="preInscriptionBtn03">S'inscrire maintenant</button>
             </div>
           </div>
         </div>
@@ -322,7 +317,6 @@
         <div class="grid-box variant-2"></div>
       </div>
     </div>
-
 
     <!-- Roles Section -->
     <section class="roles">
@@ -448,14 +442,13 @@
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path
-                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-                  ></path>
-                  <polyline points="14 2 14 8 20 8"></polyline>
-                  <line x1="16" y1="13" x2="8" y2="13"></line>
-                  <line x1="16" y1="17" x2="8" y2="17"></line>
-                  <polyline points="10 9 9 9 8 9"></polyline>
+                  <!-- Le "bac" -->
+                  <path d="M5 14v5h14v-5" />
+                  <!-- La flèche -->
+                  <path d="M12 14V7" />
+                  <path d="M9 10l3-3 3 3" />
                 </svg>
               </div>
               <h3 class="step-title">1. Upload du code</h3>
@@ -478,10 +471,11 @@
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <polygon
-                    points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
-                  ></polygon>
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21 12 17.77 5.82 21 7 14.14 2 9.27 8.91 8.26 12 2"
+                  />
                 </svg>
               </div>
               <h3 class="step-title">2. Analyse IA</h3>
@@ -538,7 +532,7 @@
             placeholder="Entrez votre e-mail"
             class="join-input"
           />
-          <button class="btn btn-join">S'inscrire maintenant</button>
+          <button class="btn btn-join" id="preInscriptionBtn04">S'inscrire maintenant</button>
         </div>
       </div>
     </section>
@@ -547,7 +541,7 @@
     <footer>
       <div class="container">
         <div class="footer-logo">
-          <img src="./assets/image/logo.png" alt="" />
+          <img src="./assets/logo.svg" alt="" />
         </div>
       </div>
     </footer>
