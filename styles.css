@@ -83,8 +83,23 @@ img {
   padding: 0.5rem 1.5rem;
 }
 
-.btn-primary:hover {
-  background-color: var(--blue-700);
+@media (max-width: 768px) {
+  .btn-primary {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  h1,
+  h2,
+  p,
+  h3 {
+    text-align: left !important;
+  }
+
+  .step-icon {
+    display: none !important;
+  }
 }
 
 .btn-hero {
@@ -159,7 +174,7 @@ header {
 .hero {
   background-image: linear-gradient(to top, #0b144f, #020809);
   color: var(--white);
-  padding: 2rem 0;
+  padding: 3rem 0;
   position: relative;
 }
 
@@ -410,7 +425,6 @@ header {
 .role-description {
   color: var(--persian-blue-darkest);
   font-size: 1rem;
-  text-align: justify;
   margin-bottom: 0;
 }
 
@@ -639,8 +653,8 @@ footer {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 50px);
-  grid-template-rows: repeat(4, 50px);
+  grid-template-columns: repeat(5, 50px);
+  grid-template-rows: repeat(5, 50px);
   gap: 50px;
 }
 
@@ -679,8 +693,8 @@ footer {
 
 .background-grid .grid {
   display: grid;
-  grid-template-columns: repeat(8, 100px);
-  grid-template-rows: repeat(4, 100px);
+  grid-template-columns: repeat(2, 100px);
+  grid-template-rows: repeat(5, 100px);
   gap: 100px;
   opacity: 0.06;
 }
@@ -726,7 +740,6 @@ html {
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  margin-left: -50px;
 }
 
 .grid-right {
@@ -734,7 +747,6 @@ html {
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  margin-right: -50px;
 }
 
 /* Bloc central */
@@ -744,6 +756,15 @@ html {
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
+}
+
+@media (max-width: 950px) {
+  .grid.grid-left {
+    display: none;
+  }
+  .grid.grid-right {
+    display: none;
+  }
 }
 
 /* --- Styles pour mobiles --- */
