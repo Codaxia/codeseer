@@ -12,10 +12,6 @@
       href="https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
   </head>
   <body>
     <!-- Header -->
@@ -25,7 +21,9 @@
           <img src="./assets/logo.svg" alt="" />
         </div>
         <div>
-          <button class="btn btn-primary" id="preInscriptionBtn01">Pré-inscription</button>
+          <button class="btn btn-primary" id="preInscriptionBtn01">
+            Pré-inscription
+          </button>
         </div>
       </div>
     </header>
@@ -60,7 +58,7 @@
         <div class="modal-content">
           <span class="close-btn" id="closeModalBtn">&times;</span>
           <h2>Pré-inscription</h2>
-        
+
           <form>
             <label for="nom">Nom</label>
             <input
@@ -84,8 +82,8 @@
               required
             />
 
-            <button type="submit">Envoyer</button>  
-            <img src="./assets/logo.svg" alt="" class="modal-img">
+            <button type="submit">Envoyer</button>
+            <img src="./assets/logo.svg" alt="" class="modal-img" />
           </form>
         </div>
       </div>
@@ -272,8 +270,9 @@
                 type="email"
                 placeholder="Entrez votre e-mail"
                 class="join-input"
+                required
               />
-              <button class="btn btn-join" id="preInscriptionBtn03">S'inscrire maintenant</button>
+              <button class="btn btn-join">S'inscrire maintenant</button>
             </div>
           </div>
         </div>
@@ -337,11 +336,11 @@
             aujourd'hui !
           </p>
         </div>
-
-        <div class="swiper role-swiper">
-          <div class="swiper-wrapper role-cards">
+        <div class="carousel-wrapper">
+          <!-- Track qui contient toutes les cartes -->
+          <div class="carousel-track" id="carouselTrack">
             <!-- Carte 1 -->
-            <div class="swiper-slide role-card">
+            <div class="role-card">
               <div class="role-image-container">
                 <img
                   src="./assets/image/role-01.png"
@@ -349,7 +348,7 @@
                   class="role-image"
                 />
               </div>
-              <h3 class="role-title-1">CEO & Fondateurs (Startups/PME)</h3>
+              <h3 class="role-title-1">CEO &amp; Fondateurs (Startups/PME)</h3>
               <p class="role-description">
                 Obtenez une vision claire et immédiate de la situation technique
                 de votre produit SaaS, sans besoin d'un expert technique
@@ -358,7 +357,7 @@
             </div>
 
             <!-- Carte 2 -->
-            <div class="swiper-slide role-card">
+            <div class="role-card">
               <div class="role-image-container">
                 <img
                   src="./assets/image/role-02.png"
@@ -367,7 +366,7 @@
                 />
               </div>
               <h3 class="role-title-2">
-                Product Managers & Directeurs Opérationnels
+                Product Managers &amp; Directeurs Opérationnels
               </h3>
               <p class="role-description">
                 Identifiez rapidement les problèmes cachés de performance et de
@@ -377,7 +376,7 @@
             </div>
 
             <!-- Carte 3 -->
-            <div class="swiper-slide role-card">
+            <div class="role-card">
               <div class="role-image-container">
                 <img
                   src="./assets/image/role-03.png"
@@ -386,7 +385,7 @@
                 />
               </div>
               <h3 class="role-title-3">
-                Responsables Techniques & Agences de code
+                Responsables Techniques &amp; Agences de code
               </h3>
               <p class="role-description">
                 Gagnez du temps en réalisant rapidement des audits techniques
@@ -396,7 +395,7 @@
             </div>
 
             <!-- Carte 4 -->
-            <div class="swiper-slide role-card">
+            <div class="role-card">
               <div class="role-image-container">
                 <img
                   src="./assets/image/role-04.png"
@@ -404,7 +403,7 @@
                   class="role-image"
                 />
               </div>
-              <h3 class="role-title-3">Investisseurs, VCs & Acheteurs</h3>
+              <h3 class="role-title-3">Investisseurs, VCs &amp; Acheteurs</h3>
               <p class="role-description">
                 Évaluez clairement la qualité technique avant d'investir afin de
                 réduire les risques liés à la sécurité, performance ou dette
@@ -412,16 +411,15 @@
               </p>
             </div>
           </div>
+        </div>
 
-          <!-- Flèches personnalisées -->
-          <div class="swiper-buttons">
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-          </div>
+        <!-- Boutons de navigation bleus en bas -->
+        <div class="carousel-nav">
+          <button class="nav-button" id="prevBtn">&#10094;</button>
+          <button class="nav-button" id="nextBtn">&#10095;</button>
         </div>
       </div>
     </section>
-
     <!-- Steps Section -->
     <section class="steps">
       <div class="container">
@@ -491,6 +489,7 @@
             <div class="step-icon-container">
               <div class="step-icon">
                 <svg
+                  class="svg"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -531,8 +530,9 @@
             type="email"
             placeholder="Entrez votre e-mail"
             class="join-input"
+            required
           />
-          <button class="btn btn-join" id="preInscriptionBtn04">S'inscrire maintenant</button>
+          <button class="btn btn-join">S'inscrire maintenant</button>
         </div>
       </div>
     </section>
@@ -545,7 +545,6 @@
         </div>
       </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

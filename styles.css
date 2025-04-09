@@ -29,7 +29,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Teachers", sans-serif;
-
 }
 
 body {
@@ -324,6 +323,8 @@ header {
 .roles {
   padding: 5rem 0;
   background-color: var(--white);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .section-header {
@@ -345,36 +346,39 @@ header {
   margin: 0 auto;
 }
 
-.role-cards {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
+/* ===== CAROUSEL WRAPPER ===== */
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
   margin-top: 3.5rem;
+  overflow: hidden;
 }
 
-@media (min-width: 768px) {
-  .role-cards {
-    grid-template-columns: repeat(3, 1fr);
-  }
+/* Piste horizontale qui contient les cartes */
+.carousel-track {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
 }
 
+/* ==== CARTES ==== */
 .role-card {
   background: var(--white);
   border-radius: 0.75rem;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
+  min-width: 100%; /* Sur mobile : 1 carte prend la largeur totale */
+  box-sizing: border-box;
+}
+
+/* À partir de 768px, on peut afficher 3 cartes simultanément */
+@media (min-width: 768px) {
+  .role-card {
+    min-width: calc(100% / 3);
+  }
 }
 
 .role-image-container {
   margin-bottom: 1rem;
-}
-
-.p-role {
-  color: var(--persian-blue-darker);
-}
-
-.p-bold {
-  font-weight: 500;
 }
 
 .role-image {
@@ -393,21 +397,57 @@ header {
   font-size: 1.25rem;
   font-weight: 400;
   color: var(--persian-blue-dark);
+  margin-bottom: 1rem;
 }
 
 .role-title-3 {
   font-size: 1.25rem;
   font-weight: 400;
   color: var(--eastern-blue-darker);
+  margin-bottom: 1rem;
 }
 
 .role-description {
   color: var(--persian-blue-darkest);
   font-size: 1rem;
-  margin-bottom: 0;
   text-align: justify;
+  margin-bottom: 0;
 }
 
+/* ===== BOUTONS BLEUS EN BAS ===== */
+.carousel-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+.nav-button {
+  background-color: var(--blue-button);
+  outline: none;
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+  margin: 0 1rem;
+  font-size: 1.2rem;
+  border-radius: 30%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+#nextBtn {
+  color: white;
+  background-color: var(--persian-blue-darkest);
+}
+
+#prevBtn {
+  color: var(--javalight);
+  background-color: var(--white);
+  border: 4px solid var(--javalight);
+}
+
+.nav-button:hover {
+  transform: scale(1.08);
+}
 /* Steps Section */
 .steps {
   padding: 5rem 0;
@@ -460,10 +500,10 @@ header {
   justify-content: center;
   width: 3rem;
   height: 3rem;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   margin-right: 1rem;
-  color: var(--persian-blue-darker);
+  color: var(--white);
 }
 
 .step-title {
@@ -582,18 +622,6 @@ footer {
   max-width: 36rem;
   color: var(--white);
   margin: 0 auto 3rem;
-}
-.role-swiper .swiper-button-next,
-.role-swiper .swiper-button-prev {
-  background-color: rgba(255, 255, 255, 0.5); /* légère transparence */
-  border-radius: 10%;
-  color: var(--white); /* couleur des icônes */
-  padding: 40px;
-}
-
-.role-swiper .swiper-button-next:hover,
-.role-swiper .swiper-button-prev:hover {
-  opacity: 0.8;
 }
 
 .grid-wrapper {
@@ -721,7 +749,8 @@ html {
 /* --- Styles pour mobiles --- */
 @media screen and (max-width: 768px) {
   /* Supprimer le scroll horizontal */
-  html, body {
+  html,
+  body {
     overflow-x: hidden;
     margin: 0;
     padding: 0;
@@ -730,20 +759,20 @@ html {
   .content {
     padding: 0;
   }
-  
+
   .grid-wrapper {
     /* On empile tout en colonne */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+
     width: 100%;
     padding: 2rem 1rem;
-    overflow-x: hidden; 
+    overflow-x: hidden;
     position: relative;
   }
-  
+
   /* Annule la position absolue et les marges négatives */
   .grid-left,
   .grid-right {
@@ -751,7 +780,7 @@ html {
     transform: none;
     margin: 2rem auto; /* On les éloigne un peu de la section */
   }
-  
+
   /* On modifie la grille pour réduire sa taille et éviter qu'elle soit trop longue */
   .grid-left .grid,
   .grid-right .grid {
@@ -759,17 +788,17 @@ html {
     grid-template-columns: repeat(2, 60px);
     grid-template-rows: repeat(4, 60px);
     gap: 10px;
-    
+
     /* Centrage horizontal */
     margin: 0 auto;
   }
-  
+
   /* Ajuster la taille des carrés si besoin */
   .grid-box {
     width: 60px;
     height: 60px;
   }
-  
+
   /* Section au centre, largeur adaptée au mobile */
   .section {
     max-width: 90%;
@@ -778,21 +807,20 @@ html {
   }
 }
 
-
 .modal {
-  display: none;              /* Masquée par défaut */
-  position: fixed;            /* Reste visible lors du scroll */
-  z-index: 9999;              /* Au-dessus de tous les autres éléments */
+  display: none; /* Masquée par défaut */
+  position: fixed; /* Reste visible lors du scroll */
+  z-index: 9999; /* Au-dessus de tous les autres éléments */
   left: 0;
   top: 0;
-  width: 100%;                /* Couvre toute la largeur */
-  height: 100%;               /* Couvre toute la hauteur */
+  width: 100%; /* Couvre toute la largeur */
+  height: 100%; /* Couvre toute la hauteur */
   background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
 }
 
 .modal-content {
   background-image: linear-gradient(to top, #0b144f, #000000);
-  margin: 10% auto;         /* Centrage vertical et horizontal */
+  margin: 10% auto; /* Centrage vertical et horizontal */
   padding: 2rem;
   border-radius: 8px;
   width: 90%;
@@ -809,7 +837,6 @@ html {
   font-weight: bold;
   cursor: pointer;
 }
-
 
 /* Style minimal du formulaire contenu dans la modal */
 .modal-content form {
