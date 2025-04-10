@@ -59,32 +59,74 @@
           <span class="close-btn" id="closeModalBtn">&times;</span>
           <h2>Pré-inscription</h2>
 
-          <form>
+          <form action="https://formsubmit.co/xavier@codaxia.com" method="POST">
             <label for="nom">Nom</label>
             <input
               type="text"
               id="nom"
+              name="nom"
               placeholder="Entrez votre nom"
               required
             />
-            <label for="nom">Prénom</label>
+
+            <label for="prenom">Prénom</label>
             <input
               type="text"
-              id="nom"
-              placeholder="Entrez votre nom"
+              id="prenom"
+              name="prenom"
+              placeholder="Entrez votre prénom"
               required
             />
+
             <label for="email">Email</label>
             <input
               type="email"
               id="email"
+              name="email"
               placeholder="Entrez votre email"
               required
             />
 
+            <!-- Anti-spam -->
+            <input type="text" name="_honey" style="display: none" />
+
+            <!-- Redirection personnalisée -->
+            <input
+              type="hidden"
+              name="_next"
+              value="https://codeseer.codaxia.com/"
+            />
+
+            <!-- Sujet personnalisé -->
+            <input
+              type="hidden"
+              name="_subject"
+              value="Nouvelle pré-inscription !"
+            />
+
+            <!-- Désactiver captcha si besoin -->
+            <input type="hidden" name="_captcha" value="false" />
+
             <button type="submit">Envoyer</button>
             <img src="./assets/logo-02.svg" alt="" class="modal-img" />
           </form>
+        </div>
+      </div>
+
+      <div class="modal success-modal" id="successModal">
+        <div class="modal-content">
+          <h2>Votre soumission a été envoyée!</h2>
+          <svg
+            class="success"
+            xmlns="http://www.w3.org/2000/svg"
+            width="80"
+            height="80"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <path d="M16 8l-6.5 7L8 13" />
+          </svg>
         </div>
       </div>
 
@@ -278,9 +320,12 @@
                 type="email"
                 placeholder="Entrez votre e-mail"
                 class="join-input"
+                id="rejoinEmail"
                 required
               />
-              <button class="btn btn-join">S'inscrire maintenant</button>
+              <button class="btn btn-join" id="rejoinBtn">
+                S'inscrire maintenant
+              </button>
             </div>
           </div>
         </div>
@@ -531,8 +576,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Join Section -->
     <section class="join">
       <div class="container">
         <h2 class="join-title">Rejoignez CodeSeer</h2>
@@ -541,20 +584,38 @@
           <span class="semi-bold">bénéficiez d'un audit</span> de
           <span class="highlight-java">code automatisé par l'IA.</span>
         </p>
-
-        <div class="join-form">
+        <form
+          id="joinForm"
+          action="https://formsubmit.co/xavier@codaxia.com"
+          method="POST"
+          class="join-form"
+        >
           <input
             type="email"
+            id="joinEmail"
+            name="email"
             placeholder="Entrez votre e-mail"
             class="join-input"
             required
           />
-          <button class="btn btn-join">S'inscrire maintenant</button>
-        </div>
+          <button class="btn btn-join" type="submit">
+            S'inscrire maintenant
+          </button>
+          <input type="text" name="_honey" style="display: none" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input
+            type="hidden"
+            name="_subject"
+            value="Nouvelle inscription CodeSeer !"
+          />
+          <input
+            type="hidden"
+            name="_next"
+            value="https://codeseer.codaxia.com/"
+          />
+        </form>
       </div>
     </section>
-
-    <!-- Footer -->
     <footer>
       <div class="container">
         <div class="footer-logo">
