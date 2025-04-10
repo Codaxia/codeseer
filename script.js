@@ -100,3 +100,40 @@ prevBtn.addEventListener("click", () => {
     }, 300);
   }
 });
+
+let startX;
+let isSwiping = false;
+
+track.addEventListener(
+  "touchstart",
+  (e) => {
+    startX = e.touches[0].clientX;
+    isSwiping = true;
+  },
+  { passive: true }
+);
+
+track.addEventListener(
+  "touchmove",
+  (e) => {
+    // Optionnel : tu pourrais ajouter une animation ici
+  },
+  { passive: true }
+);
+
+track.addEventListener("touchend", (e) => {
+  if (!isSwiping) return;
+
+  const endX = e.changedTouches[0].clientX;
+  const deltaX = endX - startX;
+
+  if (Math.abs(deltaX)) {
+    if (deltaX > 0) {
+      prevBtn.click(); // swipe droite → slide précédent
+    } else {
+      nextBtn.click(); // swipe gauche → slide suivant
+    }
+  }
+
+  isSwiping = false;
+});
