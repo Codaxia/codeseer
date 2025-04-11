@@ -59,7 +59,10 @@
           <span class="close-btn" id="closeModalBtn">&times;</span>
           <h2>Pré-inscription</h2>
 
-          <form action="https://formsubmit.co/xavier@codaxia.com" method="POST">
+          <form
+            action="https://formsubmit.co/xavier@codaxia.com"
+            method="POST"
+          >
             <label for="nom">Nom</label>
             <input
               type="text"
@@ -103,9 +106,6 @@
               name="_subject"
               value="Nouvelle pré-inscription !"
             />
-
-            <!-- Désactiver captcha si besoin -->
-            <input type="hidden" name="_captcha" value="false" />
 
             <button type="submit">Envoyer</button>
             <img src="./assets/logo.svg" alt="" class="modal-img" />
@@ -469,12 +469,11 @@
               </p>
             </div>
           </div>
-        </div>
-
-        <!-- Boutons de navigation bleus en bas -->
-        <div class="carousel-nav">
-          <button class="nav-button" id="prevBtn">&#10094;</button>
-          <button class="nav-button" id="nextBtn">&#10095;</button>
+          <!-- Boutons de navigation bleus en bas -->
+          <div class="carousel-nav">
+            <button class="nav-button" id="prevBtn">&#10094;</button>
+            <button class="nav-button" id="nextBtn">&#10095;</button>
+          </div>
         </div>
       </div>
     </section>
@@ -598,7 +597,7 @@
             S'inscrire maintenant
           </button>
           <input type="text" name="_honey" style="display: none" />
-          <input type="hidden" name="_captcha" value="false" />
+
           <input
             type="hidden"
             name="_subject"

@@ -26,13 +26,12 @@ closeModalBtn.addEventListener("click", closeModal);
 const track = document.getElementById("carouselTrack");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
-setInterval(() => nextBtn.click(), 8000);
 
 let slides = Array.from(track.children);
-const slidesToShow = 3;
+let slidesToShow = getSlidesToShow();
 let currentIndex = slidesToShow;
 
-// Clone les premières et dernières cartes pour effet de boucle
+// Clonage
 const startClones = slides
   .slice(0, slidesToShow)
   .map((slide) => slide.cloneNode(true));
@@ -41,35 +40,51 @@ const endClones = slides
   .map((slide) => slide.cloneNode(true));
 
 startClones.forEach((clone) => track.appendChild(clone));
-endClones
-  .reverse()
-  .forEach((clone) => track.insertBefore(clone, track.firstChild));
+endClones.reverse().forEach((clone) => track.insertBefore(clone, track.firstChild));
 
-// Recalculer la liste des slides après clonage
+// Recalcul des slides
 slides = Array.from(track.children);
 
-// Appliquer le bon offset initial
+// 🔁 Responsive : 1 slide si <768px, sinon 3
+function getSlidesToShow() {
+  return window.innerWidth < 768 ? 1 : 3;
+}
+
 function getSlideWidth() {
   return slides[0].getBoundingClientRect().width;
 }
 
+function updateActiveSlides() {
+  slides.forEach((slide) => slide.classList.remove("active-slide"));
+
+  for (let i = 0; i < slidesToShow; i++) {
+    const visibleIndex = currentIndex + i;
+    if (slides[visibleIndex]) {
+      slides[visibleIndex].classList.add("active-slide");
+    }
+  }
+}
+
 function setInitialPosition() {
+  slidesToShow = getSlidesToShow(); // recalcul au resize
+  currentIndex = slidesToShow;
   const slideWidth = getSlideWidth();
   track.style.transition = "none";
   track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+  updateActiveSlides();
 }
+
 window.addEventListener("load", setInitialPosition);
 window.addEventListener("resize", setInitialPosition);
 
-// Aller à l'index
 function goToSlide(index) {
   const slideWidth = getSlideWidth();
   track.style.transition = "transform 0.3s ease-in-out";
   track.style.transform = `translateX(-${index * slideWidth}px)`;
   currentIndex = index;
+  updateActiveSlides();
 }
 
-// Suivant
 nextBtn.addEventListener("click", () => {
   currentIndex++;
   goToSlide(currentIndex);
@@ -78,14 +93,12 @@ nextBtn.addEventListener("click", () => {
     setTimeout(() => {
       track.style.transition = "none";
       currentIndex = slidesToShow;
-      track.style.transform = `translateX(-${
-        currentIndex * getSlideWidth()
-      }px)`;
+      track.style.transform = `translateX(-${currentIndex * getSlideWidth()}px)`;
+      updateActiveSlides();
     }, 300);
   }
 });
 
-// Précédent
 prevBtn.addEventListener("click", () => {
   currentIndex--;
   goToSlide(currentIndex);
@@ -94,12 +107,14 @@ prevBtn.addEventListener("click", () => {
     setTimeout(() => {
       track.style.transition = "none";
       currentIndex = slides.length - slidesToShow * 2;
-      track.style.transform = `translateX(-${
-        currentIndex * getSlideWidth()
-      }px)`;
+      track.style.transform = `translateX(-${currentIndex * getSlideWidth()}px)`;
+      updateActiveSlides();
     }, 300);
   }
 });
+
+// Auto-slide
+setInterval(() => nextBtn.click(), 8000);
 
 let startX;
 let isSwiping = false;
@@ -270,7 +285,6 @@ document.addEventListener("DOMContentLoaded", () => {
     hiddenForm.appendChild(emailField);
     hiddenForm.innerHTML += `
       <input type="hidden" name="_subject" value="Nouvelle inscription Rejoindre CodeSeer">
-      <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="https://codeseer.codaxia.com/">
       <input type="text" name="_honey" style="display:none">
     `;
