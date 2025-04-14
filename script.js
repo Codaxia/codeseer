@@ -1,3 +1,10 @@
+
+  const toggle = document.getElementById("language-toggle");
+  // If the URL includes "/en", we're on the English page → switch ON
+  if (window.location.pathname.includes("/en")) {
+    toggle.checked = true;
+  }
+
 const preInscriptionBtn01 = document.getElementById("preInscriptionBtn01");
 const preInscriptionBtn02 = document.getElementById("preInscriptionBtn02");
 const preInscriptionModal = document.getElementById("preInscriptionModal");
@@ -182,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (!isValidEmail(email)) {
-      alert("Veuillez entrer une adresse email valide.");
+      alert("Veuillez entrer une adresse email valide. / Please enter a valid email address.");
       shakeInput(emailInput);
       emailInput.focus();
       return;
@@ -235,7 +242,7 @@ form.addEventListener("submit", function (e) {
   const email = emailInput.value.trim();
 
   if (!isValidEmail(email)) {
-    alert("Veuillez entrer une adresse email valide.");
+    alert("Veuillez entrer une adresse email valide. / Please enter a valid email address.");
     emailInput.focus();
     return;
   }
@@ -268,7 +275,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = rejoinEmail.value.trim();
 
     if (!isValidEmail(email)) {
-      alert("Veuillez entrer une adresse email valide.");
+      alert("Veuillez entrer une adresse email valide. / Please enter a valid email address.");
       rejoinEmail.focus();
       return;
     }

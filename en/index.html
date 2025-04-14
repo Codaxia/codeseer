@@ -1,34 +1,34 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CodeSeer</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
     <link
       href="https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&display=swap"
       rel="stylesheet"
     />
   </head>
+
   <body>
     <!-- Header -->
     <header>
       <div class="container header-container">
         <div class="logo">
-          <img src="./assets/logo.svg" alt="" />
+          <img src="../assets/logo.svg" alt="" />
         </div>
     
-        <!-- Regroupe le switch et le bouton dans une seule div -->
         <div class="header-actions">
           <div class="switch">
             <input
               id="language-toggle"
               class="check-toggle check-toggle-round-flat"
               type="checkbox"
-              onchange="window.location.href = this.checked ? './en/index.html' : 'index.html';"
+              onchange="window.location.href = this.checked ? '/en/index.html' : '/index.html';"
             />
             <label for="language-toggle"></label>
             <span class="on">Fr</span>
@@ -36,7 +36,7 @@
           </div>
     
           <button class="btn btn-primary" id="preInscriptionBtn01">
-            Pré-inscription
+            Pre-registration
           </button>
         </div>
       </div>
@@ -46,16 +46,16 @@
     <section class="hero">
       <div class="container hero-container">
         <div class="hero-content">
-          <h1 class="hero-title">Automatiser l'audit</h1>
+          <h1 class="hero-title">Automate your audit</h1>
           <h2 class="hero-subtitle">
-            de votre code avec un agent IA<sup>✦</sup>
+            of your code with an AI agent<sup>✦</sup>
           </h2>
           <p class="hero-description">
-            CodeSeer est la solution la plus rapide d'avoir une vision claire
-            des enjeux de votre logiciel <strong>SaaS</strong>
+            CodeSeer is the fastest way to get a clear view of your
+            <strong>SaaS</strong> software’s challenges
           </p>
           <button class="btn btn-hero" id="preInscriptionBtn02">
-            Pré-inscription
+            Pre-registration
           </button>
         </div>
         <div class="hero-image-container">
@@ -63,7 +63,7 @@
           <img
             alt="CodeSeer Interface"
             class="hero-image"
-            src="./assets/image/dashboard.png"
+            src="../assets/image/dashboard.png"
           />
         </div>
       </div>
@@ -71,24 +71,24 @@
       <div class="modal" id="preInscriptionModal">
         <div class="modal-content">
           <span class="close-btn" id="closeModalBtn">&times;</span>
-          <h2>Pré-inscription</h2>
+          <h2>Pre-registration</h2>
 
           <form action="https://formsubmit.co/xavier@codaxia.com" method="POST">
-            <label for="nom">Nom</label>
+            <label for="nom">Last Name</label>
             <input
               type="text"
               id="nom"
               name="nom"
-              placeholder="Entrez votre nom"
+              placeholder="Enter your last name"
               required
             />
 
-            <label for="prenom">Prénom</label>
+            <label for="prenom">First Name</label>
             <input
               type="text"
               id="prenom"
               name="prenom"
-              placeholder="Entrez votre prénom"
+              placeholder="Enter your first name"
               required
             />
 
@@ -97,36 +97,36 @@
               type="email"
               id="email"
               name="email"
-              placeholder="Entrez votre email"
+              placeholder="Enter your email"
               required
             />
 
             <!-- Anti-spam -->
             <input type="text" name="_honey" style="display: none" />
 
-            <!-- Redirection personnalisée -->
+            <!-- Custom redirect -->
             <input
               type="hidden"
               name="_next"
               value="https://codeseer.codaxia.com/"
             />
 
-            <!-- Sujet personnalisé -->
+            <!-- Custom subject -->
             <input
               type="hidden"
               name="_subject"
-              value="Nouvelle pré-inscription !"
+              value="New pre-registration!"
             />
 
-            <button type="submit">Envoyer</button>
-            <img src="./assets/logo.svg" alt="" class="modal-img" />
+            <button type="submit">Submit</button>
+            <img src="../assets/logo.svg" alt="" class="modal-img" />
           </form>
         </div>
       </div>
 
       <div class="modal success-modal" id="successModal">
         <div class="modal-content">
-          <h2>Votre soumission a été envoyée!</h2>
+          <h2>Your submission has been sent!</h2>
           <svg
             class="success"
             xmlns="http://www.w3.org/2000/svg"
@@ -168,16 +168,17 @@
     <section class="features" id="features">
       <div class="container">
         <h2 class="section-title">
-          Audit ciblé pour des
+          Targeted audit for
           <span class="highlight">
-            recommandations <br />
-            stratégiques
+            strategic <br />
+            recommendations
           </span>
         </h2>
 
         <div class="feature-cards">
           <div class="feature-card">
             <div class="feature-icon code-icon">
+              <!-- Existing SVG kept unchanged -->
               <svg
                 width="24"
                 height="24"
@@ -192,10 +193,10 @@
                 <polyline points="8 6 2 12 8 18"></polyline>
               </svg>
             </div>
-            <h3 class="feature-title">Dette technique</h3>
+            <h3 class="feature-title">Technical Debt</h3>
             <p class="feature-description">
-              Évaluer la dette technique pour pouvoir maintenir votre
-              application et ajouter de futures fonctionnalités.
+              Assess technical debt to maintain your application and enable the
+              addition of future features.
             </p>
           </div>
 
@@ -212,9 +213,8 @@
             </div>
             <h3 class="feature-title">Performance</h3>
             <p class="feature-description">
-              Ciblez et résolvez les goulots d’étranglement afin de régler les
-              problèmes de vitesse et améliorer la réactivité de votre
-              application.
+              Pinpoint and resolve bottlenecks to fix speed issues and improve
+              your application’s responsiveness.
             </p>
           </div>
 
@@ -233,10 +233,10 @@
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
               </svg>
             </div>
-            <h3 class="feature-title">Sécurité</h3>
+            <h3 class="feature-title">Security</h3>
             <p class="feature-description">
-              Identifiez et corrigez les vulnérabilités critiques pour éviter
-              les attaques et les fuites de donnée.
+              Identify and fix critical vulnerabilities to prevent attacks and
+              data leaks.
             </p>
           </div>
 
@@ -263,15 +263,16 @@
                 <rect width="10" height="8" x="7" y="8" rx="2"></rect>
               </svg>
             </div>
-            <h3 class="feature-title">Solidité</h3>
+            <h3 class="feature-title">Reliability</h3>
             <p class="feature-description">
-              Cibler l'origine des bugs et renforcez la robustesse de votre code
-              pour éviter les pannes majeures.
+              Target the source of bugs and strengthen your code’s robustness to
+              prevent major failures.
             </p>
           </div>
         </div>
       </div>
     </section>
+
     <div class="grid-wrapper">
       <!-- Grille gauche -->
       <div class="grid grid-left">
@@ -323,20 +324,18 @@
       <div class="section">
         <div class="content">
           <div class="container">
-            <h2 class="rejoin-title">Rejoignez CodeSeer</h2>
-            <p class="rejoin-description">en avant-première</p>
+            <h2 class="rejoin-title">Join CodeSeer</h2>
+            <p class="rejoin-description">in early access</p>
 
             <div class="join-form">
               <input
                 type="email"
-                placeholder="Entrez votre e-mail"
+                placeholder="Enter your email"
                 class="join-input"
                 id="rejoinEmail"
                 required
               />
-              <button class="btn btn-join" id="rejoinBtn">
-                S'inscrire maintenant
-              </button>
+              <button class="btn btn-join" id="rejoinBtn">Sign up now</button>
             </div>
           </div>
         </div>
@@ -395,92 +394,88 @@
       <div class="container">
         <div class="section-header">
           <h2 class="section-title-roles">
-            CodeSeer simplifie
-            <span class="highlight">vos audits techniques</span><br />
-            quel que soit votre rôle
+            CodeSeer simplifies
+            <span class="highlight">your technical audits</span><br />
+            no matter your role
           </h2>
           <p class="section-description">
-            Débloquez votre potentiel avec nos solutions innovantes. Transformez
-            votre flux de travail et augmentez votre productivité dès
-            aujourd'hui !
+            Unlock your potential with our innovative solutions. Transform your
+            workflow and boost productivity starting today!
           </p>
         </div>
         <div class="carousel-wrapper">
-          <!-- Track qui contient toutes les cartes -->
+          <!-- Track containing all cards -->
           <div class="carousel-track" id="carouselTrack">
-            <!-- Carte 1 -->
+            <!-- Card 1 -->
             <div class="role-card">
               <div class="role-image-container">
                 <img
-                  src="./assets/image/role-01.png"
-                  alt="CEO & Fondateurs"
+                  src="../assets/image/role-01.png"
+                  alt="CEO & Founders"
                   class="role-image"
                 />
               </div>
-              <h3 class="role-title-1">CEO &amp; Fondateurs (Startups/PME)</h3>
+              <h3 class="role-title-1">CEOs &amp; Founders (Startups/SMBs)</h3>
               <p class="role-description">
-                Obtenez une vision claire et immédiate de la situation technique
-                de votre produit SaaS, sans besoin d'un expert technique
-                interne, pour éviter les coûts imprévus.
+                Get a clear and immediate view of your SaaS product’s technical
+                situation—without needing in-house expertise—to avoid unexpected
+                costs.
               </p>
             </div>
 
-            <!-- Carte 2 -->
+            <!-- Card 2 -->
             <div class="role-card">
               <div class="role-image-container">
                 <img
-                  src="./assets/image/role-02.png"
+                  src="../assets/image/role-02.png"
                   alt="Product Managers"
                   class="role-image"
                 />
               </div>
               <h3 class="role-title-2">
-                Product Managers &amp; Directeurs Opérationnels
+                Product Managers &amp; Operations Directors
               </h3>
               <p class="role-description">
-                Identifiez rapidement les problèmes cachés de performance et de
-                stabilité de vos outils numériques pour livrer à temps et
-                satisfaire vos clients.
+                Quickly identify hidden issues in performance and stability to
+                deliver on time and keep your clients happy.
               </p>
             </div>
 
-            <!-- Carte 3 -->
+            <!-- Card 3 -->
             <div class="role-card">
               <div class="role-image-container">
                 <img
-                  src="./assets/image/role-03.png"
-                  alt="Responsables Techniques"
+                  src="../assets/image/role-03.png"
+                  alt="Technical Leads"
                   class="role-image"
                 />
               </div>
-              <h3 class="role-title-3">
-                Responsables Techniques &amp; Agences de code
-              </h3>
+              <h3 class="role-title-3">Technical Leads &amp; Dev Agencies</h3>
               <p class="role-description">
-                Gagnez du temps en réalisant rapidement des audits techniques
-                précis, pour identifier les problèmes du code existant sans
-                perdre de temps en analyses manuelles.
+                Save time by running fast, accurate technical audits to detect
+                issues in existing code—without spending hours on manual
+                analysis.
               </p>
             </div>
 
-            <!-- Carte 4 -->
+            <!-- Card 4 -->
             <div class="role-card">
               <div class="role-image-container">
                 <img
-                  src="./assets/image/role-04.png"
-                  alt="VCs & Investisseurs"
+                  src="../assets/image/role-04.png"
+                  alt="VCs & Investors"
                   class="role-image"
                 />
               </div>
-              <h3 class="role-title-3">Investisseurs, VCs &amp; Acheteurs</h3>
+              <h3 class="role-title-3">Investors, VCs &amp; Buyers</h3>
               <p class="role-description">
-                Évaluez clairement la qualité technique avant d'investir afin de
-                réduire les risques liés à la sécurité, performance ou dette
-                technique.
+                Clearly assess technical quality before investing to reduce
+                risks tied to security, performance, or technical debt.
               </p>
             </div>
           </div>
-          <!-- Boutons de navigation bleus en bas -->
+
+          <!-- Blue navigation buttons at bottom -->
           <div class="carousel-nav">
             <button class="nav-button" id="prevBtn">&#10094;</button>
             <button class="nav-button" id="nextBtn">&#10095;</button>
@@ -488,12 +483,11 @@
         </div>
       </div>
     </section>
+
     <!-- Steps Section -->
     <section class="steps">
       <div class="container">
-        <h2 class="section-title steps-title">
-          Optimisez votre code en 3 étapes
-        </h2>
+        <h2 class="section-title steps-title">Optimize your code in 3 steps</h2>
 
         <div class="step-cards">
           <div class="step-card">
@@ -510,18 +504,16 @@
                   stroke-linejoin="round"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <!-- Le "bac" -->
                   <path d="M5 14v5h14v-5" />
-                  <!-- La flèche -->
                   <path d="M12 14V7" />
                   <path d="M9 10l3-3 3 3" />
                 </svg>
               </div>
-              <h3 class="step-title">1. Upload du code</h3>
+              <h3 class="step-title">1. Upload your code</h3>
             </div>
             <p class="step-description">
-              Importez directement votre code en un clic depuis votre dépôt Git
-              ou en téléchargeant vos fichiers.
+              Import your code in one click from your Git repository or by
+              uploading your files.
             </p>
           </div>
 
@@ -544,12 +536,12 @@
                   />
                 </svg>
               </div>
-              <h3 class="step-title">2. Analyse IA</h3>
+              <h3 class="step-title">2. AI Analysis</h3>
             </div>
             <p class="step-description">
-              L'algorithme scanne votre codebase pour détecter les failles,
-              optimiser les performances et identifier la dette technique avec
-              une précision inégalée.
+              The algorithm scans your codebase to detect vulnerabilities,
+              optimize performance, and identify technical debt with unmatched
+              accuracy.
             </p>
           </div>
 
@@ -571,24 +563,25 @@
                   <polyline points="22 4 12 14.01 9 11.01"></polyline>
                 </svg>
               </div>
-              <h3 class="step-title">3. Rapport détaillé</h3>
+              <h3 class="step-title">3. Detailed report</h3>
             </div>
             <p class="step-description">
-              Recevez un diagnostic clair avec un score de qualité et une liste
-              de correctifs prioritaires. Obtenez des recommandations
-              actionnables adaptées à vos besoins.
+              Receive a clear diagnostic with a quality score and a list of
+              prioritized fixes. Get actionable recommendations tailored to your
+              needs.
             </p>
           </div>
         </div>
       </div>
     </section>
+
     <section class="join">
       <div class="container">
-        <h2 class="join-title">Rejoignez CodeSeer</h2>
+        <h2 class="join-title">Join CodeSeer</h2>
         <p class="join-description">
-          Soyez parmi les premiers à accéder à CodeSeer et
-          <span class="semi-bold">bénéficiez d'un audit</span> de
-          <span class="highlight-java">code automatisé par l'IA.</span>
+          Be among the first to access CodeSeer and
+          <span class="semi-bold">benefit from an</span>
+          <span class="highlight-java">AI-powered automated code audit.</span>
         </p>
         <form
           id="joinForm"
@@ -600,19 +593,17 @@
             type="email"
             id="joinEmail"
             name="email"
-            placeholder="Entrez votre e-mail"
+            placeholder="Enter your email"
             class="join-input"
             required
           />
-          <button class="btn btn-join" type="submit">
-            S'inscrire maintenant
-          </button>
+          <button class="btn btn-join" type="submit">Sign up now</button>
           <input type="text" name="_honey" style="display: none" />
 
           <input
             type="hidden"
             name="_subject"
-            value="Nouvelle inscription CodeSeer !"
+            value="New CodeSeer registration!"
           />
           <input
             type="hidden"
@@ -622,13 +613,14 @@
         </form>
       </div>
     </section>
+
     <footer>
       <div class="container">
         <div class="footer-logo">
-          <img src="./assets/logo.svg" alt="" />
+          <img src="../assets/logo.svg" alt="" />
         </div>
       </div>
     </footer>
-    <script src="script.js"></script>
+    <script src="../script.js"></script>
   </body>
 </html>
