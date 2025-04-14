@@ -1038,23 +1038,7 @@ input.shake {
 .role-card.active-slide {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-.switch {
-  position: relative;
-  display: inline-block;
-  margin: 0 5px;
-}
 
-.switch > span {
-  position: absolute;
-  top: 14px;
-  pointer-events: none;
-  font-weight: bold;
-  font-size: 12px;
-  text-transform: uppercase;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, .06);
-  width: 50%;
-  text-align: center;
-}
 
 input.check-toggle-round-flat:checked ~ .off {
   color: var(--white);
@@ -1064,10 +1048,31 @@ input.check-toggle-round-flat:checked ~ .on {
   color: #fff;
 }
 
+.switch {
+  position: relative;
+  display: inline-block;
+  margin: 0 5px;
+  width: 97px;
+  height: 35px;
+}
+
+/* Position les labels "Fr" / "En" de façon plus fiable */
+.switch > span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .06);
+  width: 50%;
+  text-align: center;
+  pointer-events: none;
+}
+
 .switch > span.on {
   left: 0;
   padding-left: 2px;
-  text-align: center;
   color: var(--white);
 }
 
@@ -1076,6 +1081,7 @@ input.check-toggle-round-flat:checked ~ .on {
   padding-right: 4px;
   color: #fff;
 }
+
 
 .check-toggle {
   position: absolute;
@@ -1117,14 +1123,13 @@ input.check-toggle-round-flat + label:before {
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-/* ✅ CERCLE avec gradient */
 input.check-toggle-round-flat + label:after {
-  top: 4px;
-  left: 4px;
-  bottom: 4px;
+  top: 2px;
+  left: 2px;
+  bottom: 2px;
   width: 48px;
   background-image: linear-gradient(to right, #5fc2db, #1c33c7);
-  border-radius: 52px;
+  border-radius: 60px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   transition: margin 0.2s ease-in-out;
 }

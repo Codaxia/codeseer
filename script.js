@@ -1,7 +1,7 @@
 
   const toggle = document.getElementById("language-toggle");
   // If the URL includes "/en", we're on the English page → switch ON
-  if (window.location.pathname.includes("/en")) {
+  if (window.location.pathname.includes("/fr")) {
     toggle.checked = true;
   }
 
