@@ -1,8 +1,11 @@
 
   const toggle = document.getElementById("language-toggle");
-  // If the URL includes "/en", we're on the English page → switch ON
+
+  // Si l'URL contient "/fr", on est sur la page française → toggle ON
   if (window.location.pathname.includes("/fr")) {
     toggle.checked = true;
+  } else {
+    toggle.checked = false;
   }
 
 const preInscriptionBtn01 = document.getElementById("preInscriptionBtn01");
