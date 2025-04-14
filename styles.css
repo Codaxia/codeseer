@@ -135,7 +135,7 @@ img {
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   margin-bottom: 4rem;
   text-align: center;
@@ -618,6 +618,7 @@ header {
   max-width: 32rem;
   margin: 0 auto;
 }
+
 .highlight-java {
   color: var(--javalight);
 }
@@ -625,6 +626,13 @@ header {
 @media (min-width: 640px) {
   .join-form {
     flex-direction: row;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .join-form {
+    margin: 0;
   }
 }
 
