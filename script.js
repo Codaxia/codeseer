@@ -1,23 +1,17 @@
+const toggle = document.getElementById("language-toggle");
 
-  const toggle = document.getElementById("language-toggle");
+// Si l'URL contient "/fr", on est sur la page française → toggle ON
+if (window.location.pathname.includes("/fr")) {
+  toggle.checked = true;
+} else {
+  toggle.checked = false;
+}
 
-  // Si l'URL contient "/fr", on est sur la page française → toggle ON
-  if (window.location.pathname.includes("/fr")) {
-    toggle.checked = true;
-  } else {
-    toggle.checked = false;
-  }
-
-const preInscriptionBtn01 = document.getElementById("preInscriptionBtn01");
 const preInscriptionBtn02 = document.getElementById("preInscriptionBtn02");
 const preInscriptionModal = document.getElementById("preInscriptionModal");
 const closeModalBtn = document.getElementById("closeModalBtn");
 
 // Ouvrir la modal et désactiver le scroll du body
-preInscriptionBtn01.addEventListener("click", () => {
-  preInscriptionModal.style.display = "block";
-  document.body.style.overflow = "hidden";
-});
 
 preInscriptionBtn02.addEventListener("click", () => {
   preInscriptionModal.style.display = "block";
@@ -50,7 +44,9 @@ const endClones = slides
   .map((slide) => slide.cloneNode(true));
 
 startClones.forEach((clone) => track.appendChild(clone));
-endClones.reverse().forEach((clone) => track.insertBefore(clone, track.firstChild));
+endClones
+  .reverse()
+  .forEach((clone) => track.insertBefore(clone, track.firstChild));
 
 // Recalcul des slides
 slides = Array.from(track.children);
@@ -103,7 +99,9 @@ nextBtn.addEventListener("click", () => {
     setTimeout(() => {
       track.style.transition = "none";
       currentIndex = slidesToShow;
-      track.style.transform = `translateX(-${currentIndex * getSlideWidth()}px)`;
+      track.style.transform = `translateX(-${
+        currentIndex * getSlideWidth()
+      }px)`;
       updateActiveSlides();
     }, 300);
   }
@@ -117,7 +115,9 @@ prevBtn.addEventListener("click", () => {
     setTimeout(() => {
       track.style.transition = "none";
       currentIndex = slides.length - slidesToShow * 2;
-      track.style.transform = `translateX(-${currentIndex * getSlideWidth()}px)`;
+      track.style.transform = `translateX(-${
+        currentIndex * getSlideWidth()
+      }px)`;
       updateActiveSlides();
     }, 300);
   }
@@ -192,7 +192,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (!isValidEmail(email)) {
-      alert("Veuillez entrer une adresse email valide. / Please enter a valid email address.");
+      alert(
+        "Veuillez entrer une adresse email valide. / Please enter a valid email address."
+      );
       shakeInput(emailInput);
       emailInput.focus();
       return;
@@ -245,7 +247,9 @@ form.addEventListener("submit", function (e) {
   const email = emailInput.value.trim();
 
   if (!isValidEmail(email)) {
-    alert("Veuillez entrer une adresse email valide. / Please enter a valid email address.");
+    alert(
+      "Veuillez entrer une adresse email valide. / Please enter a valid email address."
+    );
     emailInput.focus();
     return;
   }
@@ -278,7 +282,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = rejoinEmail.value.trim();
 
     if (!isValidEmail(email)) {
-      alert("Veuillez entrer une adresse email valide. / Please enter a valid email address.");
+      alert(
+        "Veuillez entrer une adresse email valide. / Please enter a valid email address."
+      );
       rejoinEmail.focus();
       return;
     }
